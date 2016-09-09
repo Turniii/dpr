@@ -5,6 +5,7 @@
  */
 package weatherapplication;
 
+
 /**
  *
  * @author adhraa
@@ -17,6 +18,16 @@ public class WeatherApplication {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("weatherapplication.WeatherApplication.main()");
+        
+        Subject subject = new Subject();
+        WeatherObserver oberver = new WeatherObserver(subject);
+
+        subject.setCurrentTempMode(Subject.tempMode.celsius.name());
+        subject.setWeather(15);
+        System.out.println(subject.getWeather());
+       System.out.println("weather in fahrenheit " + subject.convertTempToFahrenheit(subject.getWeather()));
+       System.out.println("weather in Celsius " + subject.convertTempToCelsius(59));
+
     }
     
 }
