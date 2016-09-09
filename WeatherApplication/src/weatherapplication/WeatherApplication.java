@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package weatherapplication;
+
+
 
 
 /**
@@ -15,7 +18,7 @@ public class WeatherApplication {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
         System.out.println("weatherapplication.WeatherApplication.main()");
         
@@ -28,6 +31,9 @@ public class WeatherApplication {
        System.out.println("weather in fahrenheit " + subject.convertTempToFahrenheit(subject.getWeather()));
        System.out.println("weather in Celsius " + subject.convertTempToCelsius(59));
 
+        HttpConnection httpConnection = new HttpConnection();
+        System.out.println(httpConnection.getData());
+        
     }
     
 }
