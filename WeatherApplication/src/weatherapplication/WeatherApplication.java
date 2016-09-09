@@ -20,6 +20,7 @@ public class WeatherApplication {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
+
         System.out.println("weatherapplication.WeatherApplication.main()");
         
         Subject subject = new Subject();
@@ -27,9 +28,10 @@ public class WeatherApplication {
 
         subject.setCurrentTempMode(Subject.tempMode.celsius.name());
         subject.setWeather(15);
-        System.out.println(subject.getWeather());
+        
        System.out.println("weather in fahrenheit " + subject.convertTempToFahrenheit(subject.getWeather()));
        System.out.println("weather in Celsius " + subject.convertTempToCelsius(59));
+
 
         HttpConnection httpConnection = new HttpConnection();
         System.out.println(httpConnection.getData());
