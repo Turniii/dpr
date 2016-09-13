@@ -18,7 +18,7 @@ import javax.swing.Timer;
  * @author adhraa
  */
 public class WeatherApplication {
-        public Subject subject;
+        public static Subject subject;
     /**
      * @param args the command line arguments
      */
@@ -35,7 +35,7 @@ public class WeatherApplication {
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                subject.
+                subject.setWeather();
                       
             }
         });

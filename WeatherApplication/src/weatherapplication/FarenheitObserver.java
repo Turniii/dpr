@@ -29,6 +29,14 @@ public class FarenheitObserver extends Observer {
          weather = currentWeather.get("WeatherText");
          dayTime = currentWeather.get("isDayTime");
          temperature = currentWeather.get("Temperature");
-        System.out.println("weather update; current Tempreature: " + temperature + " Time of " + dayTime+ " weather : "+weather);
+         int temp = convertTempToFahrenheit(Integer.getInteger(temperature));
+        System.out.println("weather update; current Tempreature: " + temp + " Time of " + dayTime+ " weather : "+weather);
     }
+   public int convertTempToFahrenheit(int temp)
+   {
+        int fahrenheit =  (int) (temp * 1.8 + 32) ;
+        return fahrenheit;
+   }
+
 }
+
