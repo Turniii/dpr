@@ -1,5 +1,8 @@
 package weatherapplication;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,15 +15,10 @@ package weatherapplication;
  */
 public interface ISubject 
 {
+       public ArrayList<Observer> observers = new ArrayList<>();
        public void attach(Observer o);
        public void detach(Observer o);
-       public int getWeather();
-       public void setWeather(int temp);
+       public HashMap<String, String>  getWeather();
+       public void setWeather();
        public void notifyObervers();
-       public void setCurrentTempMode(String mode);
-       public String getCurrentTempMode();
-       public int convertTempToCelsius(int temp);
-       public int convertTempToFahrenheit(int temp);
-
-    
 }

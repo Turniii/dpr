@@ -6,6 +6,10 @@
 
 package weatherapplication;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 
 
 
@@ -14,28 +18,27 @@ package weatherapplication;
  * @author adhraa
  */
 public class WeatherApplication {
-
+        public Subject subject;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-
         System.out.println("weatherapplication.WeatherApplication.main()");
         
-        Subject subject = new Subject();
+        //Setting observers and subject
+        subject = new Subject();
         WeatherObserver oberver = new WeatherObserver(subject);
-
-        subject.setCurrentTempMode(Subject.tempMode.celsius.name());
-        subject.setWeather(15);
         
-       System.out.println("weather in fahrenheit " + subject.convertTempToFahrenheit(subject.getWeather()));
-       System.out.println("weather in Celsius " + subject.convertTempToCelsius(59));
-
-
-        HttpConnection httpConnection = new HttpConnection();
-        System.out.println(httpConnection.getData());
         
+        Timer timer = new Timer(1000, new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                subject.
+                      
+            }
+        });
     }
     
 }

@@ -21,7 +21,7 @@ import org.json.JSONObject;
  */
 public class HttpConnection {
     
-    public HashMap getData() throws Exception {
+    public static HashMap getData() throws Exception {
         HashMap<String, String> currentWeather = new HashMap<>();
         String url = "http://dataservice.accuweather.com/currentconditions/v1/249208?apikey=tgQMNUCr7vXGY9Mwl4VYDsFQklErF25Z";
         URL obj = new URL(url);

@@ -6,7 +6,10 @@
 package weatherapplication;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,11 +18,11 @@ import java.util.List;
 public class Subject implements ISubject
 {
     List<Observer> obervers = new ArrayList<>();
-    private int temperature;
-    private String currentMode;
-    
-   public enum tempMode { celsius, fahrenheit }
+    private HashMap<String, String> currentWeather;
    
+   public Subject(){
+       
+   }
     
     @Override
     public void attach(Observer o)
@@ -34,15 +37,19 @@ public class Subject implements ISubject
     }
     
     @Override
-    public int getWeather()
+    public HashMap<String, String>  getWeather()
     {
-        return temperature;
+        return currentWeather;
     }
      
     @Override
-    public void setWeather(int currentTemp)
+    public void setWeather()
     {
-        temperature = currentTemp;
+        try {
+            currentWeather = HttpConnection.getData();
+        } catch (Exception ex) {
+            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+        }
         notifyObervers();
     }
     
@@ -54,28 +61,4 @@ public class Subject implements ISubject
         });
  
    }
-   
-    @Override
-   public void setCurrentTempMode(String mode){
-      currentMode = mode;
-   }
-    @Override
-   public String getCurrentTempMode(){
-       return  currentMode;
-   }
-   
-    @Override
-   public int convertTempToFahrenheit(int temp)
-   {
-       int fahrenheit =  (int) (temp * 1.8 + 32) ;
-       return fahrenheit;
-   }
-   
-    @Override
-   public int convertTempToCelsius(int temp)
-   {
-       int celsius =  (int) ((temp- 32) * 0.5556);
-       return celsius;
-   }
-    
 }
