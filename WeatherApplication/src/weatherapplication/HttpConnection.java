@@ -42,7 +42,6 @@ public class HttpConnection {
         String res = resInter.substring(1, resInter.length()-1);
         JSONObject obJson = new JSONObject(res);
         currentWeather.put("WeatherText", obJson.get("WeatherText").toString());
-        currentWeather.put("IsDayTime", obJson.get("IsDayTime").toString());
         JSONObject temperature = obJson.getJSONObject("Temperature");
         obJson = temperature.getJSONObject("Metric");
         currentWeather.put("Temperature", obJson.get("Value").toString());

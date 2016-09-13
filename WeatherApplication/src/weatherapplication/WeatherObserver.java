@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class WeatherObserver extends Observer{
     
     Subject subject;
-    String weather, dayTime, temperature;
+    String weather, temperature;
     HashMap<String, String> currentWeather;
     
     public WeatherObserver(Subject s)
@@ -29,9 +29,8 @@ public class WeatherObserver extends Observer{
     {
          currentWeather = subject.getWeather();
          weather = currentWeather.get("WeatherText");
-         dayTime = currentWeather.get("isDayTime");
          temperature = currentWeather.get("Temperature");
-        System.out.println("weather update; current Tempreature: " + temperature + " Time of " + dayTime+ " weather : "+weather);
+        System.out.println("weather update; current Tempreature: " + temperature + " weather : "+weather);
     }
     
 }

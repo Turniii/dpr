@@ -29,6 +29,7 @@ public class WeatherApplication {
         //Setting observers and subject
         subject = new Subject();
         WeatherObserver oberver = new WeatherObserver(subject);
+        FarenheitObserver FObserver = new FarenheitObserver(subject);
         
         
         Timer timer = new Timer(1000, new ActionListener() {
@@ -39,6 +40,7 @@ public class WeatherApplication {
                       
             }
         });
+        timer.start();
     }
     
 }

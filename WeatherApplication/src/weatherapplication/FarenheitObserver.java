@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class FarenheitObserver extends Observer {
     Subject subject;
-    String weather, dayTime, temperature;
+    String weather, temperature;
     HashMap<String, String> currentWeather;
     
     public FarenheitObserver(Subject s)
@@ -27,14 +27,13 @@ public class FarenheitObserver extends Observer {
     {
          currentWeather = subject.getWeather();
          weather = currentWeather.get("WeatherText");
-         dayTime = currentWeather.get("isDayTime");
          temperature = currentWeather.get("Temperature");
-         int temp = convertTempToFahrenheit(Integer.getInteger(temperature));
-        System.out.println("weather update; current Tempreature: " + temp + " Time of " + dayTime+ " weather : "+weather);
+         float temp = convertTempToFahrenheit(Float.parseFloat(temperature));
+        System.out.println("F: weather update; current Tempreature: " + temp + " weather : "+weather);
     }
-   public int convertTempToFahrenheit(int temp)
+   public float convertTempToFahrenheit(float temp)
    {
-        int fahrenheit =  (int) (temp * 1.8 + 32) ;
+        float fahrenheit =  (float) (temp * 1.8 + 32) ;
         return fahrenheit;
    }
 
