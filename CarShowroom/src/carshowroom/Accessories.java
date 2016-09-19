@@ -28,5 +28,11 @@ public abstract class Accessories implements Car
     {
         return car.getDescription();
     }
+    
+    @Override
+    public String getCarName() 
+    {
+        return car.getCarName();
+    }
      
 }
