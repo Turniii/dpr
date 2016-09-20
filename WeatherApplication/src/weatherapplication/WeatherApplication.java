@@ -29,15 +29,17 @@ public class WeatherApplication {
         //Setting observers and subject
         subject = new Subject();
         WeatherObserver oberver = new WeatherObserver(subject);
-        
+        FarenheitObserver fObserver = new FarenheitObserver(subject);
         
         Timer timer = new Timer(1000, new ActionListener() {
             
             @Override
             public void actionPerformed(ActionEvent e) {
                 subject.setWeather();
+                     
             }
         });
+        timer.start();
     }
     
 }

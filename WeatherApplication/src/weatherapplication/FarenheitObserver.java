@@ -6,6 +6,7 @@
 package weatherapplication;
 
 import java.util.HashMap;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -15,11 +16,12 @@ public class FarenheitObserver extends Observer {
     Subject subject;
     String weather, dayTime, temperature;
     HashMap<String, String> currentWeather;
-    
-    public FarenheitObserver(Subject s)
+    JTextArea textArea;
+    public FarenheitObserver(Subject s, JTextArea textAre)
     {
         this.subject = s;
         s.attach(this);
+        textArea = textAre;
     }
     
     @Override
@@ -27,8 +29,21 @@ public class FarenheitObserver extends Observer {
     {
          currentWeather = subject.getWeather();
          weather = currentWeather.get("WeatherText");
-         dayTime = currentWeather.get("isDayTime");
+
          temperature = currentWeather.get("Temperature");
-        System.out.println("weather update; current Tempreature: " + temperature + " Time of " + dayTime+ " weather : "+weather);
+         float temp = convertTempToFahrenheit(Float.parseFloat(temperature));
+        textArea.setText("weather update; current Tempreature: " + temperature + " weather : "+weather);
     }
+   public float convertTempToFahrenheit(float temp)
+   {
+        float fahrenheit =  (float) (temp * 1.8 + 32) ;
+        return fahrenheit;
+   }
+
+    public FarenheitObserver(Subject subject) {
+        this.subject = subject;
+        subject.attach(this);
+    }
+
 }
+

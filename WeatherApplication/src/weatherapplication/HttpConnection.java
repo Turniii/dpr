@@ -23,7 +23,7 @@ public class HttpConnection {
     
     public static HashMap getData() throws Exception {
         HashMap<String, String> currentWeather = new HashMap<>();
-        String url = "http://dataservice.accuweather.com/currentconditions/v1/249208?apikey=tgQMNUCr7vXGY9Mwl4VYDsFQklErF25Z";
+        String url = "http://dataservice.accuweather.com/currentconditions/v1/249208?apikey=Lk0HvK67jNMEzjGMdNCYGM3AzAUiHXSU";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
@@ -42,10 +42,10 @@ public class HttpConnection {
         String res = resInter.substring(1, resInter.length()-1);
         JSONObject obJson = new JSONObject(res);
         currentWeather.put("WeatherText", obJson.get("WeatherText").toString());
-        currentWeather.put("IsDayTime", obJson.get("IsDayTime").toString());
         JSONObject temperature = obJson.getJSONObject("Temperature");
         obJson = temperature.getJSONObject("Metric");
         currentWeather.put("Temperature", obJson.get("Value").toString());
+        System.out.println(currentWeather);
         return currentWeather;
     }
 }

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Subject implements ISubject
 {
-    List<Observer> obervers = new ArrayList<>();
+    List<Observer> observers = new ArrayList<>();
     private HashMap<String, String> currentWeather;
    
    public Subject(){
@@ -27,13 +27,13 @@ public class Subject implements ISubject
     @Override
     public void attach(Observer o)
     {
-        obervers.add(o);
+        observers.add(o);
     }
     
     @Override
     public void detach(Observer o)
     {
-        obervers.remove(o);
+        observers.remove(o);
     }
     
     @Override
@@ -56,9 +56,10 @@ public class Subject implements ISubject
     @Override
    public void notifyObervers()
    {
-       obervers.stream().forEach((oberver) -> {
-           oberver.update();
-        });
+       for (int i = 0; i < observers.size(); i++){
+           observers.get(i).update();
+       }
+       
  
    }
 }
