@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 public class WeatherObserver extends Observer{
     
     Subject subject;
-    String weather, dayTime, temperature;
+    String weather, temperature;
     HashMap<String, String> currentWeather;
     JTextArea textArea;
     
@@ -38,9 +38,8 @@ public class WeatherObserver extends Observer{
     {
          currentWeather = subject.getWeather();
          weather = currentWeather.get("WeatherText");
-         dayTime = currentWeather.get("isDayTime");
          temperature = currentWeather.get("Temperature");
-        textArea.setText("weather update; current Tempreature: " + temperature +  " weather : "+weather);
+        System.out.println("weather update; current Tempreature: " + temperature + " weather : "+weather);
     }
     
 }
