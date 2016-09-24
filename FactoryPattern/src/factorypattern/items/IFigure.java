@@ -5,6 +5,8 @@
  */
 package factorypattern.items;
 
+import java.awt.Image;
+
 /**
  *
  * @author Turni
@@ -13,5 +15,5 @@ public interface IFigure {
     void jump();
     void moveForward();
     void moveBackward();
-    void draw();
+    Image draw();
 }
