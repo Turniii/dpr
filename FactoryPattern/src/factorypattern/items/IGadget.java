@@ -12,5 +12,9 @@ import java.awt.Image;
  * @author Turni
  */
 public interface IGadget {
-    public Image draw();
+    public void draw();
+    public void move();
+    void up();
+    void down();
+    public Boolean use();
 }

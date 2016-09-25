@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factorypattern.items.house;
-
-import factorypattern.items.IHouse;
-import java.awt.Image;
+package factorypattern;
 
 /**
  *
  * @author Turni
  */
-public class MarioHouse implements IHouse {
-
-    @Override
-    public Image draw() {
-        return null;
-    }
-    
+public enum State {
+    MENU,
+    INITJEUMINION,
+    INITJEUMARIO,
+    JUMP,
+    USE,
+    JEU,
+    PAUSE,
+    END
 }

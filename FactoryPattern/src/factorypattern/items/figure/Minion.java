@@ -5,8 +5,10 @@
  */
 package factorypattern.items.figure;
 
+import factorypattern.StdDraw;
 import factorypattern.items.IFigure;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,26 +16,51 @@ import javax.swing.ImageIcon;
  * @author Turni
  */
 public class Minion implements IFigure {
-
+    public int posX = 60;
+    public int posY = 80;
+    public int jumpMax = 200;
     @Override
-    public void jump() {
-        System.out.println("Minion jump."); //To change body of generated methods, choose Tools | Templates.
+    public void up() {
+       posY+=2;
     }
 
     @Override
-    public void moveForward() {
-        System.out.println("Minion MF."); //To change body of generated methods, choose Tools | Templates.
+    public void down() {
+        posY-=2;
     }
 
     @Override
-    public void moveBackward() {
-        System.out.println("Minion MB."); //To change body of generated methods, choose Tools | Templates.
+    public int getY() {
+        return posY;
     }
 
     @Override
-    public Image draw() {
-        ImageIcon ii = new ImageIcon("minionSprite");
-        return ii.getImage();//To change body of generated methods, choose Tools | Templates.
+    public int getJumpMax() {
+        return jumpMax;
+    }
+    
+    
+    
+
+    @Override
+    public void move() {
+        if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) {
+                if (posX > 1) {
+                    posX--;
+                }
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
+                if (posX < 600) {
+                    posX++;
+                }
+            }
+    }
+    
+
+    @Override
+    public void draw() {
+        StdDraw.picture(posX, posY,"img/minionSprite.png");
+        //To change body of generated methods, choose Tools | Templates.
     }
     
 }

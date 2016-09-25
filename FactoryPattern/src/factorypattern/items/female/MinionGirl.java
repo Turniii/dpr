@@ -5,6 +5,7 @@
  */
 package factorypattern.items.female;
 
+import factorypattern.StdDraw;
 import factorypattern.items.IFemale;
 import java.awt.Image;
 
@@ -15,8 +16,8 @@ import java.awt.Image;
 public class MinionGirl implements IFemale {
 
     @Override
-    public Image draw() {
-        return null;
+    public void draw() {
+        StdDraw.picture(300, 57,"img/minionette.png");
     }
     
 }

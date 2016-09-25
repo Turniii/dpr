@@ -12,5 +12,5 @@ import java.awt.Image;
  * @author Turni
  */
 public interface IFemale {
-    public Image draw();
+    public void draw();
 }

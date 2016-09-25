@@ -11,59 +11,58 @@ import factorypattern.items.IFemale;
 import factorypattern.items.IFigure;
 import factorypattern.items.IGadget;
 import factorypattern.items.IHouse;
-import factorypattern.items.female.MinionGirl;
-import factorypattern.items.figure.Minion;
-import factorypattern.items.gadget.FreezeGun;
-import factorypattern.items.house.MinionHouse;
+import factorypattern.items.female.Peach;
+
+import factorypattern.items.figure.Mario;
+import factorypattern.items.gadget.Flower;
+import factorypattern.items.house.Bowser;
+
 
 /**
  *
  * @author Turni
  */
-public class MinionFactory implements IFactory{
-
-    public String name = "Minion Game";
+public class MarioFactory implements IFactory {
+    public String name = "Mario Game";
     
     
     @Override
     public IFigure createFigure() {
-        return new Minion();
+        return new Mario();
     }
 
     @Override
     public String getName() {
-        return "Minion Game";
+        return "Mario Game";
     }
 
     @Override
     public String getBackground() {
-        return new String("img/minionBack.jpg");
+        return new String("img/marioBack.png");
     }
 
     @Override
     public IFemale createFemale() {
-        return new MinionGirl();
+        return new Peach();
     }
 
     @Override
     public IGadget createGadget() {
-        return new FreezeGun();
+        return new Flower();
     }
 
     @Override
     public IHouse createHouse() {
-        return new MinionHouse();
+        return new Bowser();
     }
     @Override
     public void drawBackground(){
-        StdDraw.picture(300, 200, "img/minionBack.jpg");
+        StdDraw.picture(300, 200, "img/marioBack.png");
     }
 
     @Override
     public void drawEnd() {
-        StdDraw.picture(300, 200, "img/minionWin.jpg");
+        StdDraw.picture(300, 200, "img/marioWin.png");
     }
-    
-    
     
 }

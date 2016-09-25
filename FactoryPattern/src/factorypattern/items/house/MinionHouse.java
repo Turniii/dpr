@@ -5,6 +5,7 @@
  */
 package factorypattern.items.house;
 
+import factorypattern.StdDraw;
 import factorypattern.items.IHouse;
 import java.awt.Image;
 
@@ -15,8 +16,8 @@ import java.awt.Image;
 public class MinionHouse implements IHouse{
 
     @Override
-    public Image draw() {
-        return null;
+    public void draw() {
+           StdDraw.picture(525, 75, "img/minionHouse.png");
     }
     
 }

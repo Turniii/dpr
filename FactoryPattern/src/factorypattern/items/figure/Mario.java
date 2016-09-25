@@ -5,34 +5,62 @@
  */
 package factorypattern.items.figure;
 
+import factorypattern.StdDraw;
 import factorypattern.items.IFigure;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 
 /**
  *
  * @author Turni
  */
 public class Mario implements IFigure{
-
+public int posX = 60;
+    public int posY = 80;
+    public int jumpMax = 300;
     @Override
-    public void jump() {
-          System.out.println("Mario jump."); //To change body of generated methods, choose Tools | Templates.
+    public void up() {
+       posY+=4;
     }
 
     @Override
-    public void moveForward() {
-         System.out.println("Mario MF."); //To change body of generated methods, choose Tools | Templates.
+    public void down() {
+        posY-=4;
     }
 
     @Override
-    public void moveBackward() {
-          System.out.println("Mario MB."); //To change body of generated methods, choose Tools | Templates.
+    public int getY() {
+        return posY;
     }
 
     @Override
-    public Image draw() {
-          System.out.println("Mario draw.");
-          return null;//To change body of generated methods, choose Tools | Templates.
+    public int getJumpMax() {
+        return jumpMax;
     }
+    
+    
+    
+
+    @Override
+    public void move() {
+        if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) {
+                if (posX > 1) {
+                    posX-=3;
+                }
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
+                if (posX < 600) {
+                    posX+=3;
+                }
+            }
+    }
+    
+
+    @Override
+    public void draw() {
+        StdDraw.picture(posX, posY,"img/mario.png");
+        //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
 }

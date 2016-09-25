@@ -5,7 +5,10 @@
  */
 package factorypattern;
 
+import factorypattern.items.IFemale;
 import factorypattern.items.IFigure;
+import factorypattern.items.IGadget;
+import factorypattern.items.IHouse;
 
 /**
  *
@@ -14,4 +17,10 @@ import factorypattern.items.IFigure;
 public interface IFactory {
     String getName();
     IFigure createFigure();
+    IFemale createFemale();
+    IGadget createGadget();
+    IHouse createHouse();
+    String getBackground();
+    void drawBackground();
+    void drawEnd();
 }

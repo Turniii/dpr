@@ -12,8 +12,10 @@ import java.awt.Image;
  * @author Turni
  */
 public interface IFigure {
-    void jump();
-    void moveForward();
-    void moveBackward();
-    Image draw();
+    void up();
+    void down();
+    void move();
+    int getY();
+    int getJumpMax();
+    void draw();
 }
