@@ -5,10 +5,12 @@
  */
 package factorypattern.items;
 
+import java.awt.Image;
+
 /**
  *
  * @author Turni
  */
-public class IHouse {
-    
+public interface IHouse {
+    public Image draw();
 }

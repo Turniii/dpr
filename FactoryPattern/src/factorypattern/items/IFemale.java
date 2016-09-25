@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factorypattern;
+package factorypattern.items;
 
-import factorypattern.items.IFigure;
+import java.awt.Image;
 
 /**
  *
  * @author Turni
  */
-public interface IFactory {
-    String getName();
-    IFigure createFigure();
+public interface IFemale {
+    public Image draw();
 }

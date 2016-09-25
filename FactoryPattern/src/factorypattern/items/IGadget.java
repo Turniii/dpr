@@ -5,10 +5,12 @@
  */
 package factorypattern.items;
 
+import java.awt.Image;
+
 /**
  *
  * @author Turni
  */
-public class IGadjet {
-    
+public interface IGadget {
+    public Image draw();
 }

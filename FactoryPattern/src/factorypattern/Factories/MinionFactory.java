@@ -19,5 +19,12 @@ public class MinionFactory implements IFactory{
     public IFigure createFigure() {
         return new Minion();
     }
+
+    @Override
+    public String getName() {
+        return "Minion Game";
+    }
+    
+    
     
 }

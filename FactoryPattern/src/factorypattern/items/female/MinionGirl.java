@@ -3,15 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factorypattern;
+package factorypattern.items.female;
 
-import factorypattern.items.IFigure;
+import factorypattern.items.IFemale;
+import java.awt.Image;
 
 /**
  *
  * @author Turni
  */
-public interface IFactory {
-    String getName();
-    IFigure createFigure();
+public class MinionGirl implements IFemale {
+
+    @Override
+    public Image draw() {
+        return null;
+    }
+    
 }
