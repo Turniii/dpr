@@ -8,7 +8,7 @@ package factorypattern;
 import factorypattern.items.IFemale;
 import factorypattern.items.IFigure;
 import factorypattern.items.IGadget;
-import factorypattern.items.IHouse;
+import factorypattern.items.ITarget;
 
 /**
  *
@@ -19,7 +19,7 @@ public interface IFactory {
     IFigure createFigure();
     IFemale createFemale();
     IGadget createGadget();
-    IHouse createHouse();
+    ITarget createHouse();
     String getBackground();
     void drawBackground();
     void drawEnd();

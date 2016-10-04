@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factorypattern.items.house;
+package factorypattern.items.target;
 
 import factorypattern.StdDraw;
-import factorypattern.items.IHouse;
 import java.awt.Image;
+import factorypattern.items.ITarget;
 
 /**
  *
  * @author Turni
  */
-public class MinionHouse implements IHouse{
+public class EvilGuy implements ITarget{
 
     @Override
     public void draw() {
-           StdDraw.picture(525, 75, "img/minionHouse.png");
+           StdDraw.picture(600, 75, "img/evilGuy.png");
     }
     
 }

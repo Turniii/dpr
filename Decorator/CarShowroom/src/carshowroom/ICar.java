@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factorypattern.items;
-
-import java.awt.Image;
+package carshowroom;
 
 /**
  *
- * @author Turni
+ * @author adhraa
  */
-public interface IHouse {
-    public void draw();
+public interface ICar 
+{
+    public String getCarName();
+    public int getPrice();
+    public String getDescription();
 }

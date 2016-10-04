@@ -10,13 +10,13 @@ import factorypattern.Factories.MinionFactory;
 import factorypattern.items.IFemale;
 import factorypattern.items.IFigure;
 import factorypattern.items.IGadget;
-import factorypattern.items.IHouse;
 import factorypattern.items.female.MinionGirl;
 import factorypattern.items.figure.Minion;
 import factorypattern.items.gadget.FreezeGun;
-import factorypattern.items.house.MinionHouse;
+import factorypattern.items.target.EvilGuy;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
+import factorypattern.items.ITarget;
 
 /**
  *
@@ -37,7 +37,7 @@ public class GenericGame {
         IFigure figure = new Minion();
         IFemale female = new MinionGirl();
         IGadget gadget = new FreezeGun();
-        IHouse house = new MinionHouse();
+        ITarget house = new EvilGuy();
         Boolean jump = false;
         Boolean up = true;
         Boolean endGame = false;

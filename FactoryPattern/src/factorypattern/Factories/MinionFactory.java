@@ -10,11 +10,11 @@ import factorypattern.StdDraw;
 import factorypattern.items.IFemale;
 import factorypattern.items.IFigure;
 import factorypattern.items.IGadget;
-import factorypattern.items.IHouse;
 import factorypattern.items.female.MinionGirl;
 import factorypattern.items.figure.Minion;
 import factorypattern.items.gadget.FreezeGun;
-import factorypattern.items.house.MinionHouse;
+import factorypattern.items.target.EvilGuy;
+import factorypattern.items.ITarget;
 
 /**
  *
@@ -51,8 +51,8 @@ public class MinionFactory implements IFactory{
     }
 
     @Override
-    public IHouse createHouse() {
-        return new MinionHouse();
+    public ITarget createHouse() {
+        return new EvilGuy();
     }
     @Override
     public void drawBackground(){

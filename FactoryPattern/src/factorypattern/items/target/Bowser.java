@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factorypattern.items.house;
+package factorypattern.items.target;
 
 import factorypattern.StdDraw;
-import factorypattern.items.IHouse;
 import java.awt.Image;
+import factorypattern.items.ITarget;
 
 /**
  *
  * @author Turni
  */
-public class Bowser implements IHouse {
+public class Bowser implements ITarget {
 
    @Override
     public void draw() {

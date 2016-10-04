@@ -10,12 +10,12 @@ import factorypattern.StdDraw;
 import factorypattern.items.IFemale;
 import factorypattern.items.IFigure;
 import factorypattern.items.IGadget;
-import factorypattern.items.IHouse;
 import factorypattern.items.female.Peach;
 
 import factorypattern.items.figure.Mario;
 import factorypattern.items.gadget.Flower;
-import factorypattern.items.house.Bowser;
+import factorypattern.items.target.Bowser;
+import factorypattern.items.ITarget;
 
 
 /**
@@ -52,7 +52,7 @@ public class MarioFactory implements IFactory {
     }
 
     @Override
-    public IHouse createHouse() {
+    public ITarget createHouse() {
         return new Bowser();
     }
     @Override
