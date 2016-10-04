@@ -67,9 +67,17 @@ public class CoffeeFrame {
                 StdDraw.pause(2000);
                 coffeeMachine.makeCoffee();
         }
+            StdDraw.picture(580, 380, "img/kill.png");
         startTime = System.currentTimeMillis();
         coffeeMachine.clic(startTime);
-        
+        if (StdDraw.mousePressed()){
+
+            if(StdDraw.mouseX() >= 560){
+                if (StdDraw.mouseY() >= 360){
+                    System.exit(0);
+                }
+            }
+        }
         StdDraw.show();
         StdDraw.pause(20);
         StdDraw.clear();
