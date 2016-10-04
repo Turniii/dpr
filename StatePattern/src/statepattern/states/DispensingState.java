@@ -35,10 +35,12 @@ public class DispensingState implements IState{
         capacity--;
         if (capacity == 0){
             machine.setCurrentState(machine.getState("empty"));
+            machine.setCapacity(capacity);
             System.out.println("Your Beloved Coffee Machine is now empty");
         }
         else {
             machine.setCurrentState(machine.getState("noMoney"));
+            machine.setCapacity(capacity);
             System.out.println("Your Beloved Coffee Machine is ready for the next coffee");
         }
         

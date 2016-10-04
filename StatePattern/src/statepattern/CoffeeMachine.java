@@ -22,11 +22,40 @@ public class CoffeeMachine {
     IState noMoneyState = new NoMoneyState(this);
     IState currentState = null;
     int capacity = 0;
-    
+    long previousClicTime = 0;
+    boolean clicked = false;
     public CoffeeMachine() {
-        setCurrentState(emptyState);
+        this.currentState = emptyState;
+        this.capacity = 0;
     }
 
+    public void clic(long clicTime){
+        if (StdDraw.mousePressed()){
+            if (clicTime > previousClicTime + 200){
+                if(StdDraw.mouseX() >= 222 && StdDraw.mouseX() <= 229 ){
+                    if (StdDraw.mouseY() >= 130 && StdDraw.mouseY() <=155){
+                        orderCoffee();
+                    }
+
+                }
+                else if(StdDraw.mouseX() >= 403 && StdDraw.mouseX() <= 414 ){
+                    if (StdDraw.mouseY() >= 130 && StdDraw.mouseY() <=163){
+                        refill();
+                    }
+
+                }
+                else if(StdDraw.mouseX() >= 290 && StdDraw.mouseX() <= 350 ){
+                    if (StdDraw.mouseY() >= 260 && StdDraw.mouseY() <=385){
+                        addMoney();
+                    }
+
+                }
+                previousClicTime = clicTime;
+            }
+           
+            
+        }
+    }
     public IState getCurrentState() {
         return currentState;
     }
@@ -62,9 +91,6 @@ public class CoffeeMachine {
     
     public void orderCoffee(){
         this.currentState.orderCoffee();
-        if (this.currentState == dispensingState){
-            this.currentState.makeCoffee();
-        }
     }
     
     public void refill(){
@@ -73,6 +99,9 @@ public class CoffeeMachine {
     
     public void addMoney(){
         this.currentState.addMoney();
+    }
+    public void makeCoffee(){
+        this.currentState.makeCoffee();
     }
     
     

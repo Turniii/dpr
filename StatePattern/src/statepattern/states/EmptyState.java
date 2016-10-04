@@ -41,7 +41,7 @@ public class EmptyState implements IState {
     public void refill() {
         System.out.println("Your Beloved Coffee Machine as been refilled");
         machine.setCurrentState(machine.getState("noMoney"));
-        machine.setCapacity(10);
+        machine.setCapacity(4);
     }
     
 }
