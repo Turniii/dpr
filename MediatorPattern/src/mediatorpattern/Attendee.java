@@ -5,29 +5,28 @@
  */
 package mediatorpattern;
 
+import mediatorpattern.frames.PresenterFrame;
+import mediatorpattern.frames.attendeeFrame;
+
 /**
  *
  * @author Turni
  */
+
 public class Attendee extends PresentationMember{
     
+   private PresenterFrame pFrame;
+    private attendeeFrame aFrame;
     public Attendee(Mediator mediat) {
         super(mediat);
     }
     
-     public void askQuestion(String question)
-    {
-        
-        mediator.sendQuestion(question, this);
+     public void askQuestion(String question, attendeeFrame aFrame, PresenterFrame pFrame)
+    {      
+        this.pFrame = pFrame;
+        this.aFrame = aFrame;
+        aFrame.setArea("You've asked the following question to "+question);
+        mediator.sendQuestion(question,this, this.aFrame,this.pFrame);
     }
  
-    public void receiveImage(String url)
-    {
-        
-    }
-    
-    public String getPresenterName(){
-        return super.mediator.presenter.getName();
-    }
-
 }

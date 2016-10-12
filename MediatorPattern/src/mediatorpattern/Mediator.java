@@ -7,6 +7,8 @@ package mediatorpattern;
 
 import java.util.ArrayList;
 import java.util.List;
+import mediatorpattern.frames.PresenterFrame;
+import mediatorpattern.frames.attendeeFrame;
 
 /**
  *
@@ -17,33 +19,38 @@ public class Mediator {
     public Presenter presenter;
     public List<Attendee> attendees;
     
-    public void updateImage(String url){
-        for (Attendee attendee : attendees){
-            
-        }
-    }
+     private PresenterFrame pFrame;
+    private attendeeFrame aFrame;
+    
     
     public Mediator (Presenter presenter){
         this.presenter = presenter;
-        this.attendees = new ArrayList<Attendee>();
+        this.attendees = new ArrayList<>();
     }
     
-    public void addAttendee(Attendee newAttendee){
+    /*public void addAttendee(Attendee newAttendee){
         attendees.add(newAttendee);
+    }*/
+    
+    public void sendAnswer( String answer,Attendee attendee,PresenterFrame pFrame){
+       attendee.receiveAnswer(answer, pFrame);
     }
     
-    public void sendAnswer(String answer, Attendee attendee){
-        attendee.receiveAnswer(answer);
+    public void sendQuestion(String question, Attendee attendee, attendeeFrame aframe, PresenterFrame pFrame){
+        this.pFrame = pFrame;
+        this.aFrame = aframe;
+        presenter.receiveQuestion(question, attendee, aFrame,  this.pFrame);
     }
     
-    public void sendQuestion(String question, Attendee attendee){
-        
-    }
-
-    public List<Attendee> getAttendees() {
-        return attendees;
+    public List<Attendee> getattendees()
+    {
+     return pFrame.attendees;
     }
     
+     public void setattendees(ArrayList<Attendee> attendees)
+    {
+     this.attendees = attendees;
+    }
     
     
 }

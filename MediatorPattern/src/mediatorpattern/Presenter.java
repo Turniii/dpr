@@ -6,31 +6,32 @@
 package mediatorpattern;
 
 import java.util.List;
+import mediatorpattern.frames.PresenterFrame;
+import mediatorpattern.frames.attendeeFrame;
 
 /**
  *
  * @author Turni
  */
 public class Presenter extends PresentationMember{
-    
+    private PresenterFrame pFrame;
+    private attendeeFrame aFrame;
+
     public Presenter(Mediator mediat, String name) {
         super(mediat);
         super.setName(name);
     }
     
-    public void answerQuestion(String answer, Attendee attendee){
-        attendee.receiveAnswer(answer);
+    public String answerQuestion(String answer, Attendee attendee,Mediator mediator, PresenterFrame pFrame){
+       //this.aFrame.setArea("Presenter answered your question: "+ answer);
+       mediator.sendAnswer(answer,attendee,pFrame);
+       return "Presenter answered your question: "+ answer;
     }
     
-    public void receiveQuestion(String question, Attendee attendee){
-        
-    }
-    
-    public void sendNewImage(String url){
-        
-    }
-    
-    public List<Attendee> getAttendees(){
-        return super.mediator.attendees;
+    public void receiveQuestion(String question, Attendee attendee, attendeeFrame aFrame, PresenterFrame pFrame){
+       
+        this.pFrame = pFrame;
+        this.aFrame = aFrame;
+        this.pFrame.setTextArea("Attendee: "+ attendee.getName()+", asked the following: "+question);
     }
 }

@@ -5,6 +5,8 @@
  */
 package mediatorpattern.frames;
 
+import java.util.ArrayList;
+import java.util.List;
 import mediatorpattern.Attendee;
 import mediatorpattern.Mediator;
 import mediatorpattern.Presenter;
@@ -17,15 +19,17 @@ public class mediatorFrame extends javax.swing.JFrame {
 
     public Mediator mediator;
     public PresenterFrame presenterFrame;
+    public List<attendeeFrame> frames;
     /**
      * Creates new form mediatorFrame
      */
     public mediatorFrame() {
         initComponents();
         mediator = new Mediator(new Presenter(mediator, "Carl"));
-        presenterFrame = new PresenterFrame(mediator.presenter);
+        presenterFrame = new PresenterFrame(mediator.presenter,mediator);
+        frames = new ArrayList<>();
     }
-
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,9 +88,10 @@ public class mediatorFrame extends javax.swing.JFrame {
            String newAttendeeName = jTextField1.getText();
            Attendee newAttendee = new Attendee(mediator);
            newAttendee.setName(newAttendeeName);
-           mediator.addAttendee(newAttendee);
-           new attendeeFrame(newAttendee);
-           presenterFrame.addNewAttendee(newAttendee);
+          // mediator.addAttendee(newAttendee);
+          frames.add(new attendeeFrame(newAttendee, presenterFrame));
+          presenterFrame.addNewAttendee(newAttendee);
+          presenterFrame.addFrames(frames);
           
            
 

@@ -5,17 +5,18 @@
  */
 package mediatorpattern;
 
-import javax.swing.JTextArea;
+import mediatorpattern.frames.PresenterFrame;
 
 /**
  *
  * @author Turni
  */
 public abstract  class PresentationMember {
+    
     protected Mediator mediator;
     public String name;
-    public JTextArea textArea;
     
+   private PresenterFrame pFrame;
     public PresentationMember(Mediator mediat){
         mediator = mediat;
     }
@@ -28,15 +29,8 @@ public abstract  class PresentationMember {
         this.name = name;
     }
     
-    public void receiveAnswer(String answer){
-        this.textArea.append(mediator.presenter.getName()+ " answered your question : "+ answer);
+    public void receiveAnswer(String answer, PresenterFrame pFrame){
+        pFrame.setTextArea(this.name+" recieved answer: " + answer);
     }
-    public Mediator getMediator(){
-        return this.mediator;
-    }
-    
-    public void setTextArea(JTextArea textArea){
-        this.textArea = textArea;
-    }
-    
+
 }
