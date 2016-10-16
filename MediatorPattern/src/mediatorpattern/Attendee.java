@@ -6,7 +6,7 @@
 package mediatorpattern;
 
 import mediatorpattern.frames.PresenterFrame;
-import mediatorpattern.frames.attendeeFrame;
+import mediatorpattern.frames.AttendeeFrame;
 
 /**
  *
@@ -15,18 +15,31 @@ import mediatorpattern.frames.attendeeFrame;
 
 public class Attendee extends PresentationMember{
     
-   private PresenterFrame pFrame;
-    private attendeeFrame aFrame;
+    private PresenterFrame pFrame;
+    private AttendeeFrame aFrame;
     public Attendee(Mediator mediat) {
         super(mediat);
     }
     
-     public void askQuestion(String question, attendeeFrame aFrame, PresenterFrame pFrame)
+     public void askQuestion(String question, AttendeeFrame aFrame, PresenterFrame pFrame)
     {      
         this.pFrame = pFrame;
         this.aFrame = aFrame;
-        aFrame.setArea("You've asked the following question to "+question);
+        aFrame.setTextArea("You've asked the following question : "+question);
         mediator.sendQuestion(question,this, this.aFrame,this.pFrame);
     }
  
+      public void receiveAnswer(String answer, AttendeeFrame aFrame){
+        aFrame.setTextArea("Presenter sent your : "+ answer);
+    }
+
+    @Override
+    public String toString() {
+        return "Attendee{" + this.name +'}';
+    }
+      
+    public void getNewImage(String image, AttendeeFrame attendeeFrame, String slide){
+        attendeeFrame.setImage(image);
+        attendeeFrame.setLabel(slide);
+    }
 }

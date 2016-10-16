@@ -18,7 +18,7 @@ public abstract  class PresentationMember {
     
    private PresenterFrame pFrame;
     public PresentationMember(Mediator mediat){
-        mediator = mediat;
+        this.mediator = mediat;
     }
 
     public String getName() {
@@ -29,8 +29,6 @@ public abstract  class PresentationMember {
         this.name = name;
     }
     
-    public void receiveAnswer(String answer, PresenterFrame pFrame){
-        pFrame.setTextArea(this.name+" recieved answer: " + answer);
-    }
+   
 
 }

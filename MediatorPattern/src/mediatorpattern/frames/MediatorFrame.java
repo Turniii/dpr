@@ -15,15 +15,15 @@ import mediatorpattern.Presenter;
  *
  * @author Turni
  */
-public class mediatorFrame extends javax.swing.JFrame {
+public class MediatorFrame extends javax.swing.JFrame {
 
     public Mediator mediator;
     public PresenterFrame presenterFrame;
-    public List<attendeeFrame> frames;
+    public List<AttendeeFrame> frames;
     /**
      * Creates new form mediatorFrame
      */
-    public mediatorFrame() {
+    public MediatorFrame() {
         initComponents();
         mediator = new Mediator(new Presenter(mediator, "Carl"));
         presenterFrame = new PresenterFrame(mediator.presenter,mediator);
@@ -88,11 +88,11 @@ public class mediatorFrame extends javax.swing.JFrame {
            String newAttendeeName = jTextField1.getText();
            Attendee newAttendee = new Attendee(mediator);
            newAttendee.setName(newAttendeeName);
+           AttendeeFrame attendeeFrame = new AttendeeFrame(newAttendee, presenterFrame);
           // mediator.addAttendee(newAttendee);
-          frames.add(new attendeeFrame(newAttendee, presenterFrame));
           presenterFrame.addNewAttendee(newAttendee);
-          presenterFrame.addFrames(frames);
-          
+          presenterFrame.addFrames(attendeeFrame);
+          jTextField1.setText(null);
            
 
         // TODO add your handling code here:
@@ -115,20 +115,21 @@ public class mediatorFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MediatorFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mediatorFrame().setVisible(true);
+                new MediatorFrame().setVisible(true);
             }
         });
     }
